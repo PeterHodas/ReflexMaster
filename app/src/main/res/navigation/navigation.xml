@@ -21,5 +21,24 @@
     <fragment
         android:id="@+id/gameMenuFragment"
         android:name="com.example.reflexmaster.GameMenuFragment"
-        android:label="GameMenuFragment" />
+        android:label="GameMenuFragment" >
+        <action
+            android:id="@+id/action_gameMenuFragment_to_tapTapFragment"
+            app:destination="@id/tapTapFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/tapTapFragment"
+        android:name="com.example.reflexmaster.TapTapFragment"
+        android:label="TapTapFragment" >
+        <action
+            android:id="@+id/action_tapTapFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment"
+            app:popUpTo="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.example.reflexmaster.GameOverFragment"
+        android:label="GameOverFragment" />
 </navigation>
