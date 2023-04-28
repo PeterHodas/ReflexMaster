@@ -2,4 +2,11 @@
     <string name="app_name">ReflexMaster</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="popis_dshboard">Začni trénovať svoje reflexy alebo
+        si pozri svoje výsledky</string>
+    <string name="zacni_trening">Začni tréning</string>
+    <string name="pozri_vysledky">Pozri vysledky</string>
+    <string name="statistiky">Štatistiky</string>
+    <string name="popis_statist">V tejto sekcii môžeš vidieť ako sa ti darí</string>
 </resources>
