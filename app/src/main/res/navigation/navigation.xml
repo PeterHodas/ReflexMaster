@@ -10,9 +10,16 @@
         <action
             android:id="@+id/action_menuFragment_to_statisticFragment"
             app:destination="@id/statisticFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_gameMenuFragment"
+            app:destination="@id/gameMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/statisticFragment"
         android:name="com.example.reflexmaster.StatisticFragment"
         android:label="StatisticFragment" />
+    <fragment
+        android:id="@+id/gameMenuFragment"
+        android:name="com.example.reflexmaster.GameMenuFragment"
+        android:label="GameMenuFragment" />
 </navigation>

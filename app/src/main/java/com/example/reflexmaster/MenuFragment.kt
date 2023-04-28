@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 
 class MenuFragment : Fragment() {
 
+    private val viewModel: MenuViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -32,6 +34,12 @@ class MenuFragment : Fragment() {
 
         btnvys.setOnClickListener {
             view.findNavController().navigate(R.id.action_menuFragment_to_statisticFragment)
+        }
+
+        val btnhra: Button = view.findViewById(R.id.btn_trening)
+
+        btnhra.setOnClickListener {
+            view.findNavController().navigate(R.id.action_menuFragment_to_gameMenuFragment)
         }
     }
 
