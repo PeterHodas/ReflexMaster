@@ -12,5 +12,7 @@
     <string name="popis_hra">Vyber si typ hry na tréning</string>
     <string name="semafor_game">Semafor</string>
     <string name="tap_tap_game">Tap Tap</string>
+    <string name="gameOver">Game Over</string>
+    <string name="tvojeScore">Tvoje score</string>
 
 </resources>
