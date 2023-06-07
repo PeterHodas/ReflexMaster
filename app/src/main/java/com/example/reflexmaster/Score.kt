@@ -1,4 +1,4 @@
-package Database
+package com.example.reflexmaster
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
