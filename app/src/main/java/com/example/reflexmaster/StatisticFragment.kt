@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
+import com.example.reflexmaster.databinding.FragmentStatisticBinding
 
 
 class StatisticFragment : Fragment() {
@@ -25,7 +26,7 @@ class StatisticFragment : Fragment() {
     ): View? {
 
         // Get a reference to the binding object and inflate the fragment views.
-        val binding: FragmentSta = DataBindingUtil.inflate(
+        val binding: FragmentStatisticBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_statistic, container, false)
 
         val application = requireNotNull(this.activity).application
@@ -34,12 +35,13 @@ class StatisticFragment : Fragment() {
 
         val viewModelFactory = StatisticViewModelFactory(dataSource, application)
 
-        val scoreViewModel =
+        val statisticViewModel =
             ViewModelProvider(
                 this, viewModelFactory).get(StatisticViewModel::class.java)
 
         binding.setLifecycleOwner(this)
-        binding.scoreViewModel = scoreViewModel
+
+        binding.statistic2ViewModel = statisticViewModel
 
         return binding.root
         // Inflate the layout for this fragment
