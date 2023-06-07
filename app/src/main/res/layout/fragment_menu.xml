@@ -43,36 +43,62 @@ android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@+id/dshbrd"
         app:layout_constraintVertical_bias="0.026" />
 
-    <Button
-        android:id="@+id/btn_vysledok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginRight="16dp"
-        android:text="@string/pozri_vysledky"
-        android:textSize="10sp"
-        android:background="@drawable/glassmorphism"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!--
+    app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.814"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popis"
-        app:layout_constraintVertical_bias="0.345" />
+        app:layout_constraintVertical_bias="0.345"
+    -->
+
+    <Button
+        android:id="@+id/btn_vysledok"
+        android:layout_width="226dp"
+        android:layout_height="90dp"
+
+        android:background="@drawable/glassmorphism"
+        android:text="@string/pozri_vysledky"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_trening"
+        app:layout_constraintVertical_bias="0.336" />
 
     <Button
         android:id="@+id/btn_trening"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/zacni_trening"
-        android:layout_marginLeft="16dp"
+        android:layout_width="226dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="188dp"
         android:background="@drawable/glassmorphism"
+        android:text="@string/zacni_trening"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="176dp"
+        android:layout_height="202dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_trening"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popis"
+        app:layout_constraintVertical_bias="0.281"
+        app:srcCompat="@drawable/line_graphic" />
+    <!--
+    app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popis"
-        app:layout_constraintVertical_bias="0.345" />
+        app:layout_constraintVertical_bias="0.345"
+    -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
