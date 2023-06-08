@@ -14,5 +14,6 @@
     <string name="tap_tap_game">Tap Tap</string>
     <string name="gameOver">Game Over</string>
     <string name="tvojeScore">Tvoje score</string>
+    <string name="otoc">Otoč mobil aby si mohol pokračovať</string>
 
 </resources>

@@ -12,13 +12,14 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import android.content.res.Configuration
+
 
 class TapTapFragment : Fragment() {
 
     private val viewModel: TapTapViewModel by viewModels()
 
-    var height1 = 0;
-    var width1 = 0;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -30,7 +31,7 @@ class TapTapFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        naciajHodnoty()
+        viewModel.naciajHodnoty()
 
         return inflater.inflate(R.layout.fragment_tap_tap, container, false)
     }
@@ -39,33 +40,52 @@ class TapTapFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val textViewScore = view.findViewById<TextView>(R.id.tv_score)
         val constraintLayout = view.findViewById<ConstraintLayout>(R.id.vedla)
+        val btncircle: Button = view.findViewById(R.id.btn_circle)
+
         // po prevrateni
         textViewScore.text = viewModel.score.toString()
+        btncircle.x = viewModel.pozX
+        btncircle.y  = viewModel.pozY
+
+        if(viewModel.pozX == 0F && viewModel.pozY == 0F){
+            viewModel.dajPolohuX()
+            btncircle.x = viewModel.pozX
+
+            viewModel.dajPolohuY()
+            btncircle.y = viewModel.pozY
+        }
+
+
         constraintLayout.setOnClickListener {
-            viewModel.gameOver()
-            view.findNavController().navigate(R.id.action_tapTapFragment_to_gameOverFragment)
+
+            val currentOrientation = resources.configuration.orientation
+            if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+                // Aktuálny režim zobrazenia je Portrait (zvislý)
+                // Tu môžete vykonať príslušné akcie pre tento režim
+                viewModel.gameOver()
+                view.findNavController().navigate(R.id.action_tapTapFragment_to_gameOverFragment)
+            } else if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                // Aktuálny režim zobrazenia je Landscape (vodorovný)
+                // Tu môžete vykonať príslušné akcie pre tento režim
+            }
+
             // kód, ktorý sa vykoná po kliknutí na ConstraintLayout
         }
-        val btncircle: Button = view.findViewById(R.id.btn_circle)
+
 
         btncircle.setOnClickListener {
           // stlacenie tlacidla
             viewModel.increaseScore()
             textViewScore.text = viewModel.score.toString()
 
-            var pox = viewModel.dajRandomX(width1).toFloat()
-            btncircle.x = pox
-            Log.d("Pozicia", "sirka: " + pox)
-            var poy = viewModel.dajRandomY(height1).toFloat()
-            btncircle.y = poy
-            Log.d("Pozicia", "vyska: " + poy)
-        }
-    }
+            viewModel.dajPolohuX()
+            btncircle.x = viewModel.pozX
+            Log.d("Pozicia", "sirka: " + viewModel.pozX)
 
-    fun naciajHodnoty() {
-        val displayMetrics = Resources.getSystem().displayMetrics
-        height1 = displayMetrics.heightPixels
-        width1 = displayMetrics.widthPixels
+            viewModel.dajPolohuY()
+            btncircle.y = viewModel.pozY
+            Log.d("Pozicia", "sirka: " + viewModel.pozY)
+        }
     }
 
 }
