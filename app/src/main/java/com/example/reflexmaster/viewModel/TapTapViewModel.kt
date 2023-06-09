@@ -2,6 +2,7 @@ package com.example.reflexmaster.viewModel
 
 import android.app.Application
 import android.content.res.Resources
+import android.provider.SyncStateContract.Helpers.insert
 import android.text.method.TextKeyListener.clear
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
@@ -11,8 +12,7 @@ import com.example.reflexmaster.database.Score
 import com.example.reflexmaster.database.ScoreDatabaseDao
 import kotlinx.coroutines.launch
 
-class TapTapViewModel (val database: ScoreDatabaseDao,
-                       application: Application): AndroidViewModel(application) {
+class TapTapViewModel: ViewModel() {
 
     private var _score = 0
     val score: Int
@@ -34,15 +34,6 @@ class TapTapViewModel (val database: ScoreDatabaseDao,
     val pozY: Float
         get() = _pozY.toFloat()
 
-    private suspend fun insert(score: Score) {
-        database.insert(score)
-    }
-
-    fun ulozSkore(score: Score) {
-        viewModelScope.launch {
-            insert(score)
-        }
-    }
 
     fun increaseScore() {
         _score += 1

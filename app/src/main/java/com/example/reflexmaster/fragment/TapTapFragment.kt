@@ -18,11 +18,9 @@ import com.example.reflexmaster.R
 import com.example.reflexmaster.database.Score
 import com.example.reflexmaster.database.ScoreDatabase
 import com.example.reflexmaster.databinding.FragmentStatisticBinding
-import com.example.reflexmaster.databinding.FragmentTapTapBinding
 import com.example.reflexmaster.viewModel.StatisticViewModel
 import com.example.reflexmaster.viewModel.TapTapViewModel
 import com.example.reflexmaster.viewModelFactory.StatisticViewModelFactory
-import com.example.reflexmaster.viewModelFactory.TapTapViewModelFactory
 
 
 class TapTapFragment : Fragment() {
@@ -43,26 +41,7 @@ class TapTapFragment : Fragment() {
     ): View? {
         viewModel.naciajHodnoty()
 
-        // Get a reference to the binding object and inflate the fragment views.
-        val binding: FragmentTapTapBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_tap_tap, container, false)
-
-        val application = requireNotNull(this.activity).application
-
-        val dataSource = ScoreDatabase.getInstance(application).scoreDatabaseDao
-
-        val viewModelFactory = TapTapViewModelFactory(dataSource, application)
-
-        val taptapViewModel =
-            ViewModelProvider(
-                this, viewModelFactory).get(TapTapViewModel::class.java)
-
-        binding.setLifecycleOwner(this)
-
-        binding.taptapViewModel1 = taptapViewModel
-
-        return binding.root
-       // return inflater.inflate(R.layout.fragment_tap_tap, container, false)
+        return inflater.inflate(R.layout.fragment_tap_tap, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -92,8 +71,6 @@ class TapTapFragment : Fragment() {
                 // Aktuálny režim zobrazenia je Portrait (zvislý)
                 // Tu môžete vykonať príslušné akcie pre tento režim
                 viewModel.gameOver()
-                val newScore = Score(score = viewModel.score)
-                viewModel.ulozSkore(newScore)
                 view.findNavController().navigate(R.id.action_tapTapFragment_to_gameOverFragment)
             } else if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 // Aktuálny režim zobrazenia je Landscape (vodorovný)
