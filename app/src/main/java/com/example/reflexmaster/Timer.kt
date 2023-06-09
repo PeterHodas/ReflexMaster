@@ -1,6 +1,7 @@
 package com.example.reflexmaster
 
 import android.os.CountDownTimer
+import com.example.reflexmaster.fragment.GameOverFragment
 
 class Timer(duration: Long, interval: Long, private val callback: GameOverFragment) :
     CountDownTimer(duration, interval) {

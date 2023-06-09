@@ -15,5 +15,8 @@
     <string name="gameOver">Game Over</string>
     <string name="tvojeScore">Tvoje score</string>
     <string name="otoc">Otoč mobil aby si mohol pokračovať</string>
+    <string name="vysledky">Tvoje výsledky</string>
+    <string name="str_score">Score: </string>
+    <string name="str_cas">Čas: </string>
 
 </resources>

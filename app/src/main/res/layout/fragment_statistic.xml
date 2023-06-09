@@ -5,7 +5,7 @@
     <data>
         <variable
             name="statistic2ViewModel"
-            type="com.example.reflexmaster.StatisticViewModel" />
+            type="com.example.reflexmaster.viewModel.StatisticViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -69,7 +69,38 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/db_butt"
-        app:layout_constraintVertical_bias="0.179" />
+        app:layout_constraintVertical_bias="0.271" />
+
+    <Button
+        android:id="@+id/vymazBtnDb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="vymaz"
+        app:layout_constraintBottom_toTopOf="@+id/db_txtv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/db_butt" />
+
+    <ScrollView
+        android:layout_width="358dp"
+        android:layout_height="282dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/db_txtv">
+
+        <!-- In the TextView, we can access the nightsString LiveData,
+             which keeps it displayed and updated in the TextView
+             whenever it changes. -->
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@{statistic2ViewModel.scoreStrings}" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

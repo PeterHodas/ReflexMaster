@@ -1,4 +1,4 @@
-package com.example.reflexmaster
+package com.example.reflexmaster.viewModel
 
 import androidx.lifecycle.ViewModel
 

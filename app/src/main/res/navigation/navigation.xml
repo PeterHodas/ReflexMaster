@@ -5,7 +5,7 @@
     app:startDestination="@id/menuFragment">
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.reflexmaster.MenuFragment"
+        android:name="com.example.reflexmaster.fragment.MenuFragment"
         android:label="MenuFragment" >
         <action
             android:id="@+id/action_menuFragment_to_statisticFragment"
@@ -16,11 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/statisticFragment"
-        android:name="com.example.reflexmaster.StatisticFragment"
+        android:name="com.example.reflexmaster.fragment.StatisticFragment"
         android:label="StatisticFragment" />
     <fragment
         android:id="@+id/gameMenuFragment"
-        android:name="com.example.reflexmaster.GameMenuFragment"
+        android:name="com.example.reflexmaster.fragment.GameMenuFragment"
         android:label="GameMenuFragment" >
         <action
             android:id="@+id/action_gameMenuFragment_to_tapTapFragment"
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/tapTapFragment"
-        android:name="com.example.reflexmaster.TapTapFragment"
+        android:name="com.example.reflexmaster.fragment.TapTapFragment"
         android:label="TapTapFragment" >
         <action
             android:id="@+id/action_tapTapFragment_to_gameOverFragment"
@@ -39,6 +39,6 @@
     </fragment>
     <fragment
         android:id="@+id/gameOverFragment"
-        android:name="com.example.reflexmaster.GameOverFragment"
+        android:name="com.example.reflexmaster.fragment.GameOverFragment"
         android:label="GameOverFragment" />
 </navigation>

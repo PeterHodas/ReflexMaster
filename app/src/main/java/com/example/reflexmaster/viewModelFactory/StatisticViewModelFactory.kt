@@ -1,8 +1,10 @@
-package com.example.reflexmaster
+package com.example.reflexmaster.viewModelFactory
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.reflexmaster.database.ScoreDatabaseDao
+import com.example.reflexmaster.viewModel.StatisticViewModel
 
 class StatisticViewModelFactory(
     private val dataSource: ScoreDatabaseDao,

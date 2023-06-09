@@ -1,4 +1,4 @@
-package com.example.reflexmaster
+package com.example.reflexmaster.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -14,15 +14,15 @@ interface ScoreDatabaseDao {
     @Update
     suspend fun update(score: Score)
 
-    @Query("SELECT * from score_table WHERE scoreID = :key")
+    @Query("SELECT * from score_table1 WHERE scoreID = :key")
     suspend fun get(key: Long): Score?
 
-    @Query("DELETE FROM score_table")
+    @Query("DELETE FROM score_table1")
     suspend fun clear()
 
-    @Query("SELECT * FROM score_table ORDER BY scoreID DESC LIMIT 1")
+    @Query("SELECT * FROM score_table1 ORDER BY scoreID DESC LIMIT 1")
     suspend fun getTonight(): Score?
 
-    @Query("SELECT * FROM score_table ORDER BY scoreID DESC")
+    @Query("SELECT * FROM score_table1 ORDER BY scoreID DESC")
     fun getAllNights(): LiveData<List<Score>>
 }

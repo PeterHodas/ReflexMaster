@@ -1,19 +1,22 @@
-package com.example.reflexmaster
+package com.example.reflexmaster.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import com.example.reflexmaster.database.Score
+import com.example.reflexmaster.database.ScoreDatabaseDao
+import com.example.reflexmaster.formatNights
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+
 class StatisticViewModel(val database: ScoreDatabaseDao,
                          application: Application): AndroidViewModel(application) {
     private val scr = database.getAllNights()
 
+    val scoreStrings = Transformations.map(scr) { scr ->
+        formatNights(scr, application.resources)
+    }
 
     private var lastScore = MutableLiveData<Score?>()
 
@@ -41,7 +44,7 @@ class StatisticViewModel(val database: ScoreDatabaseDao,
 
     fun onStartTracking() {
         viewModelScope.launch {
-            val newNight = Score(2)
+            val newNight = Score(score = 22)
             insert(newNight)
             lastScore.value = getTonightFromDatabase()
         }
