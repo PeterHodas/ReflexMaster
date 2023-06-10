@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">ReflexMaster</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="popis_dshboard">Začni trénovať svoje reflexy alebo \nsi pozri svoje výsledky</string>
+    <string name="zacni_trening">Začni tréning</string>
+    <string name="pozri_vysledky">Pozri vysledky</string>
+    <string name="statistiky">Štatistiky</string>
+    <string name="popis_statist">V tejto sekcii môžeš vidieť ako sa ti darí</string>
+    <string name="hra">Hra</string>
+    <string name="popis_hra">Vyber si typ hry na tréning</string>
+    <string name="semafor_game">Semafor</string>
+    <string name="tap_tap_game">Tap Tap</string>
+    <string name="gameOver">Game Over</string>
+    <string name="tvojeScore">Tvoje score</string>
+    <string name="otoc">Otoč mobil aby si mohol pokračovať</string>
+    <string name="vysledky">Tvoje výsledky</string>
+    <string name="str_score">Score: </string>
+    <string name="str_cas">Čas: </string>
+    <string name="again">Hrať znovu </string>
+    <string name="home">Home </string>
+
 </resources>

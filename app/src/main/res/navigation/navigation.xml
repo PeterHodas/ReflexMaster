@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/menuFragment">
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.reflexmaster.fragment.MenuFragment"
+        android:label="MenuFragment" >
+        <action
+            android:id="@+id/action_menuFragment_to_statisticFragment"
+            app:destination="@id/statisticFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_gameMenuFragment"
+            app:destination="@id/gameMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statisticFragment"
+        android:name="com.example.reflexmaster.fragment.StatisticFragment"
+        android:label="StatisticFragment" />
+    <fragment
+        android:id="@+id/gameMenuFragment"
+        android:name="com.example.reflexmaster.fragment.GameMenuFragment"
+        android:label="GameMenuFragment" >
+        <action
+            android:id="@+id/action_gameMenuFragment_to_tapTapFragment"
+            app:destination="@id/tapTapFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/tapTapFragment"
+        android:name="com.example.reflexmaster.fragment.TapTapFragment"
+        android:label="TapTapFragment" >
+        <action
+            android:id="@+id/action_tapTapFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment"
+            app:popUpTo="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.example.reflexmaster.fragment.GameOverFragment"
+        android:label="GameOverFragment" >
+        <action
+            android:id="@+id/action_gameOverFragment_to_tapTapFragment"
+            app:destination="@id/tapTapFragment" />
+        <action
+            android:id="@+id/action_gameOverFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+</navigation>
