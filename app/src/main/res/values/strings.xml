@@ -18,5 +18,7 @@
     <string name="vysledky">Tvoje výsledky</string>
     <string name="str_score">Score: </string>
     <string name="str_cas">Čas: </string>
+    <string name="again">Hrať znovu </string>
+    <string name="home">Home </string>
 
 </resources>

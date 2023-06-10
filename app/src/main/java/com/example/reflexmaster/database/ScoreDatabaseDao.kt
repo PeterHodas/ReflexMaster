@@ -20,9 +20,12 @@ interface ScoreDatabaseDao {
     @Query("DELETE FROM score_table1")
     suspend fun clear()
 
-    @Query("SELECT * FROM score_table1 ORDER BY scoreID DESC LIMIT 1")
+    @Query("SELECT * FROM score_table1 ORDER BY time_milli DESC LIMIT 1")
     suspend fun getTonight(): Score?
 
     @Query("SELECT * FROM score_table1 ORDER BY scoreID DESC")
     fun getAllNights(): LiveData<List<Score>>
+
+    @Query("SELECT score_clm FROM score_table1 ORDER BY time_milli DESC LIMIT 1")
+    suspend fun getLastSc(): Int?
 }

@@ -12,21 +12,16 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import android.content.res.Configuration
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.example.reflexmaster.R
+import com.example.reflexmaster.database.DatabaseViewModel
 import com.example.reflexmaster.database.Score
-import com.example.reflexmaster.database.ScoreDatabase
-import com.example.reflexmaster.databinding.FragmentStatisticBinding
-import com.example.reflexmaster.viewModel.StatisticViewModel
 import com.example.reflexmaster.viewModel.TapTapViewModel
-import com.example.reflexmaster.viewModelFactory.StatisticViewModelFactory
 
 
 class TapTapFragment : Fragment() {
 
     private val viewModel: TapTapViewModel by viewModels()
-
+    private val viewModelDb: DatabaseViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +65,10 @@ class TapTapFragment : Fragment() {
             if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
                 // Aktuálny režim zobrazenia je Portrait (zvislý)
                 // Tu môžete vykonať príslušné akcie pre tento režim
+                val newScre = Score(score = viewModel.score)
+                viewModelDb.pridajScore(newScre)
                 viewModel.gameOver()
+                viewModelDb.dajPosledneScore()
                 view.findNavController().navigate(R.id.action_tapTapFragment_to_gameOverFragment)
             } else if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 // Aktuálny režim zobrazenia je Landscape (vodorovný)
