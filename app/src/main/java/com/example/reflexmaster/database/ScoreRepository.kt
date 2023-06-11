@@ -25,4 +25,17 @@ class ScoreRepository(private val scoreDao: ScoreDatabaseDao) {
     }
 
     fun getAllScore(): LiveData<List<Score>> = scoreDao.getAllNights()
+
+    suspend fun getMaxScore(): Score? {
+        return scoreDao.getMaxScore()
+    }
+
+    suspend fun getMinScore(): Score? {
+        return scoreDao.getMinScore()
+    }
+
+    suspend fun getAvgScore(): Int? {
+        return scoreDao.getAvgScore()
+    }
+
 }

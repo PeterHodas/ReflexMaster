@@ -1,32 +1,30 @@
 package com.example.reflexmaster.fragment
 
 import android.os.Bundle
-import android.text.Html
-import android.text.Spanned
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.reflexmaster.R
+import com.example.reflexmaster.Timer
+import com.example.reflexmaster.Timer2
 import com.example.reflexmaster.database.DatabaseViewModel
-import com.example.reflexmaster.database.Score
-import com.example.reflexmaster.viewModel.TapTapViewModel
 
 
 class StatisticFragment : Fragment() {
 
     private val viewModelDb: DatabaseViewModel by viewModels()
-    private var aktScore = 0
+    private lateinit var timer2: Timer2
+    private lateinit var viewMaxSc: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            viewModelDb.dajPosledneScore()
-            //aktScore = viewModelDb.posledne
+
         }
     }
 
@@ -34,28 +32,27 @@ class StatisticFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModelDb.dajPosledneScore()
-        //aktScore = viewModelDb.posledne
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_statistic, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnDbdel: Button = view.findViewById(R.id.vymazBtnDb)
+        timer2 = Timer2(600, 50, this)
 
-        val txtDB: TextView = view.findViewById(R.id.db_txtv)
-        //txtDB.text = viewModelDb.dajPosledneScore().toString()
-        //txtDB.text = viewModelDb.scoreStrings
-        viewModelDb.dajPosledneScore()
-        //aktScore = viewModelDb.posledne
-        txtDB.text = aktScore.toString()
+        // Spustenie časovača
+        timer2.start()
 
+        viewMaxSc = view.findViewById(R.id.txtNaj)
+        viewMaxSc.text = viewModelDb.dajMaxScore().score.toString() + " Cas " + viewModelDb.dajMaxScore().timeMilli.toString()
 
-        btnDbdel.setOnClickListener {
-            //viewModel.onClear()
-            viewModelDb.onClear()
-        }
+    }
+
+    fun onTimerFinish() {
+        // Táto metóda sa volá po skončení časovača
+        // Môžete sem vložiť kód na vykonanie akcií po skončení časovača
+        Log.d("casovac", "skoncil som")
+        viewMaxSc.text = viewModelDb.dajMaxScore().score.toString() + " Cas " + viewModelDb.dajMaxScore().timeMilli.toString()
     }
 }

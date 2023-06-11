@@ -28,4 +28,14 @@ interface ScoreDatabaseDao {
 
     @Query("SELECT score_clm FROM score_table1 ORDER BY time_milli DESC LIMIT 1")
     suspend fun getLastSc(): Int?
+
+    @Query("SELECT * FROM score_table1 ORDER BY score_clm ASC LIMIT 1 ")
+    suspend fun getMaxScore(): Score?
+
+    @Query("SELECT * FROM score_table1 ORDER BY score_clm DESC LIMIT 1 ")
+    suspend fun getMinScore(): Score?
+
+    @Query("SELECT avg(score_clm) FROM score_table1 ")
+    suspend fun getAvgScore(): Int?
+
 }

@@ -16,6 +16,10 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
     val posledne: Int
         get() = _posledne
 
+    private var _hodnota = Score(score = 0)
+    val hodnota: Score
+        get() = _hodnota
+
     private var lastScore = MutableLiveData<Score?>()
 
     init {
@@ -58,4 +62,29 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
         }
     }
 
+    fun dajMaxScore(): Score {
+        viewModelScope.launch {
+            _hodnota = repository.getMaxScore()!!
+            Log.d("Databaza Max", "scre: " + repository.getMaxScore())
+        }
+        return _hodnota
+    }
+
+    fun dajMinScore(): Score {
+        var hodnota = Score(score = 0)
+        viewModelScope.launch {
+            hodnota = repository.getMinScore()!!
+
+        }
+        return hodnota
+    }
+
+
+    fun dajAvgScore(): Int {
+        var hodnota = 0
+        viewModelScope.launch {
+            hodnota = repository.getAvgScore()!!
+        }
+        return hodnota
+    }
 }
