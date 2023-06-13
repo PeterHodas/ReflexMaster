@@ -1,5 +1,6 @@
 package com.example.reflexmaster.fragment
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.fragment.app.viewModels
 import com.example.reflexmaster.R
 import com.example.reflexmaster.Timer
 import com.example.reflexmaster.Timer2
+import com.example.reflexmaster.convertLongToDateString
 import com.example.reflexmaster.database.DatabaseViewModel
 
 
@@ -20,6 +22,8 @@ class StatisticFragment : Fragment() {
     private val viewModelDb: DatabaseViewModel by viewModels()
     private lateinit var timer2: Timer2
     private lateinit var viewMaxSc: TextView
+    private lateinit var viewMinSc: TextView
+    private lateinit var viewAvgSc: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,14 +49,24 @@ class StatisticFragment : Fragment() {
         timer2.start()
 
         viewMaxSc = view.findViewById(R.id.txtNaj)
-        viewMaxSc.text = viewModelDb.dajMaxScore().score.toString() + " Cas " + viewModelDb.dajMaxScore().timeMilli.toString()
+        viewMinSc = view.findViewById(R.id.txtMin)
+        viewAvgSc = view.findViewById(R.id.txtAvg)
 
+        viewMaxSc.setTypeface(null, Typeface.BOLD)
+        viewMinSc.setTypeface(null, Typeface.BOLD)
+        viewAvgSc.setTypeface(null, Typeface.BOLD)
+
+        viewMaxSc.text = viewModelDb.dajMaxScore().score.toString() + " Čas: " + convertLongToDateString(viewModelDb.dajMaxScore().timeMilli)
+        viewMinSc.text = viewModelDb.dajMinScore().score.toString() + " Čas: " + convertLongToDateString(viewModelDb.dajMinScore().timeMilli)
+        viewAvgSc.text = viewModelDb.dajAvgScore().toString()
     }
 
     fun onTimerFinish() {
         // Táto metóda sa volá po skončení časovača
         // Môžete sem vložiť kód na vykonanie akcií po skončení časovača
         Log.d("casovac", "skoncil som")
-        viewMaxSc.text = viewModelDb.dajMaxScore().score.toString() + " Cas " + viewModelDb.dajMaxScore().timeMilli.toString()
+        viewMaxSc.text = viewModelDb.dajMaxScore().score.toString() + " Čas: " + convertLongToDateString(viewModelDb.dajMaxScore().timeMilli)
+        viewMinSc.text = viewModelDb.dajMinScore().score.toString() + " Čas: " + convertLongToDateString(viewModelDb.dajMinScore().timeMilli)
+        viewAvgSc.text = viewModelDb.dajAvgScore().toString()
     }
 }

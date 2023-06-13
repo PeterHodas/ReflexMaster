@@ -21,5 +21,7 @@
     <string name="again">Hrať znovu </string>
     <string name="home">Home </string>
     <string name="najSc">Najlepšie Score </string>
+    <string name="najmSc">Najmenšie Score </string>
+    <string name="avgSc">Priemerné Score </string>
 
 </resources>

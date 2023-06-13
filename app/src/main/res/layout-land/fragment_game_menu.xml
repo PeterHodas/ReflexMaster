@@ -19,11 +19,11 @@
         android:textColor="@color/white"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.059" />
 
     <TextView
         android:id="@+id/game_popis"
@@ -37,39 +37,44 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_semafor"
         android:layout_width="273dp"
         android:layout_height="136dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="96dp"
         android:background="@drawable/glassmorphism"
         android:text="@string/semafor_game"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.131"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_popis" />
+        app:layout_constraintTop_toBottomOf="@+id/game_popis"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_tap"
         android:layout_width="273dp"
         android:layout_height="136dp"
-        android:layout_marginTop="80dp"
         android:background="@drawable/glassmorphism"
         android:text="@string/tap_tap_game"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_semafor" />
+        app:layout_constraintTop_toBottomOf="@+id/game_popis"
+        app:layout_constraintVertical_bias="0.671" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="292dp"
-        android:layout_height="582dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginBottom="296dp"
+        android:id="@+id/imageView4"
+        android:layout_width="577dp"
+        android:layout_height="298dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginBottom="148dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ppl_game" />

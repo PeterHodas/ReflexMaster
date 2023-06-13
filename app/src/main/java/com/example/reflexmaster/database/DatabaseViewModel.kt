@@ -20,6 +20,14 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
     val hodnota: Score
         get() = _hodnota
 
+    private var _min = Score(score = 0)
+    val min: Score
+        get() = _min
+
+    private var _priemer = 0
+    val priemer: Int
+        get() = _priemer
+
     private var lastScore = MutableLiveData<Score?>()
 
     init {
@@ -71,20 +79,18 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
     }
 
     fun dajMinScore(): Score {
-        var hodnota = Score(score = 0)
         viewModelScope.launch {
-            hodnota = repository.getMinScore()!!
+            _min = repository.getMinScore()!!
 
         }
-        return hodnota
+        return _min
     }
 
 
     fun dajAvgScore(): Int {
-        var hodnota = 0
         viewModelScope.launch {
-            hodnota = repository.getAvgScore()!!
+            _priemer = repository.getAvgScore()!!
         }
-        return hodnota
+        return _priemer
     }
 }
