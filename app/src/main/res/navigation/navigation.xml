@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/menuFragment">
     <fragment
@@ -27,6 +28,9 @@
             app:destination="@id/tapTapFragment"
             app:popUpTo="@id/menuFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_gameMenuFragment_to_semaforFragment"
+            app:destination="@id/semaforFragment" />
     </fragment>
     <fragment
         android:id="@+id/tapTapFragment"
@@ -48,4 +52,9 @@
             android:id="@+id/action_gameOverFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/semaforFragment"
+        android:name="com.example.reflexmaster.fragment.SemaforFragment"
+        android:label="fragment_semafor"
+        tools:layout="@layout/fragment_semafor" />
 </navigation>
