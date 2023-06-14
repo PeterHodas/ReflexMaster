@@ -1,4 +1,4 @@
-package com.example.reflexmaster
+package com.example.reflexmaster.Timer
 
 import android.os.CountDownTimer
 import com.example.reflexmaster.fragment.GameOverFragment

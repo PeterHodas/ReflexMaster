@@ -23,5 +23,8 @@
     <string name="najSc">Najlepšie Score </string>
     <string name="najmSc">Najmenšie Score </string>
     <string name="avgSc">Priemerné Score </string>
+    <string name="btnText">Slač keď zhasnú všetky svetlá </string>
+    <string name="tvojeScr">Tvoje Score </string>
+    <string name="waring">V tomto režime nie je možne otačať display, reštartuj hru </string>
 
 </resources>

@@ -26,7 +26,6 @@ class TapTapFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
 
@@ -49,6 +48,8 @@ class TapTapFragment : Fragment() {
         textViewScore.text = viewModel.score.toString()
         btncircle.x = viewModel.pozX
         btncircle.y  = viewModel.pozY
+
+        // Timer
 
         if(viewModel.pozX == 0F && viewModel.pozY == 0F){
             viewModel.dajPolohuX()
@@ -93,5 +94,4 @@ class TapTapFragment : Fragment() {
             Log.d("Pozicia", "sirka: " + viewModel.pozY)
         }
     }
-
 }

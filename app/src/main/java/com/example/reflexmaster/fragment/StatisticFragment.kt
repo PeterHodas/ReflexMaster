@@ -6,13 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.reflexmaster.R
-import com.example.reflexmaster.Timer
-import com.example.reflexmaster.Timer2
+import com.example.reflexmaster.Timer.Timer2
 import com.example.reflexmaster.convertLongToDateString
 import com.example.reflexmaster.database.DatabaseViewModel
 

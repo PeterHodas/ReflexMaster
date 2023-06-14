@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.example.reflexmaster.R
-import com.example.reflexmaster.Timer
+import com.example.reflexmaster.Timer.Timer
 import com.example.reflexmaster.database.DatabaseViewModel
 
 
@@ -55,7 +55,7 @@ class GameOverFragment : Fragment() {
             view.findNavController().navigate(R.id.action_gameOverFragment_to_tapTapFragment)
         }
 
-        // Vytvorenie inštancie timeru s trvaním 10 sekúnd a intervalom 1 sekundy
+        // Vytvorenie inštancie timeru s trvaním 2,5 sekúnd a intervalom 1 sekundy
         timer = Timer(250, 50, this)
 
         // Spustenie časovača

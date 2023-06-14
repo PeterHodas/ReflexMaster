@@ -56,5 +56,12 @@
         android:id="@+id/semaforFragment"
         android:name="com.example.reflexmaster.fragment.SemaforFragment"
         android:label="fragment_semafor"
-        tools:layout="@layout/fragment_semafor" />
+        tools:layout="@layout/fragment_semafor" >
+        <action
+            android:id="@+id/action_semaforFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_semaforFragment_self"
+            app:destination="@id/semaforFragment" />
+    </fragment>
 </navigation>

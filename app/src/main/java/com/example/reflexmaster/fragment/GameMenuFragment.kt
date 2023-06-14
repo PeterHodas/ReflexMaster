@@ -35,5 +35,11 @@ class GameMenuFragment : Fragment() {
         btntap.setOnClickListener {
             view.findNavController().navigate(R.id.action_gameMenuFragment_to_tapTapFragment)
         }
+
+        val btnsemafor: Button = view.findViewById(R.id.btn_semafor)
+
+        btnsemafor.setOnClickListener {
+            view.findNavController().navigate(R.id.action_gameMenuFragment_to_semaforFragment)
+        }
     }
 }
