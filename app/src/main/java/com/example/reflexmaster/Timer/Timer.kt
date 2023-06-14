@@ -3,6 +3,9 @@ package com.example.reflexmaster.Timer
 import android.os.CountDownTimer
 import com.example.reflexmaster.fragment.GameOverFragment
 
+/**
+ * Trieda z ktorej sa vytvára inštancia tiemra pre fragment GameOverFragment
+ */
 class Timer(duration: Long, interval: Long, private val callback: GameOverFragment) :
     CountDownTimer(duration, interval) {
 

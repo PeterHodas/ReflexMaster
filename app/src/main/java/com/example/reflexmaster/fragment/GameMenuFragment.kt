@@ -9,6 +9,9 @@ import android.widget.Button
 import androidx.navigation.findNavController
 import com.example.reflexmaster.R
 
+/**
+ * Trieda ktorá riadi a odchytáva stláčanie buttonov a preklikávanie na inú page
+ */
 
 class GameMenuFragment : Fragment() {
 
@@ -23,7 +26,6 @@ class GameMenuFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_game_menu, container, false)
     }
 

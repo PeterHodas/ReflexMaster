@@ -9,12 +9,19 @@ import androidx.core.text.HtmlCompat
 import com.example.reflexmaster.database.Score
 import java.text.SimpleDateFormat
 
+/**
+ * Metódy ktoré dávajú čas a dáta do správneho formátu ktoré su neskôr volané v iných metódach
+ *
+ */
+
+// prehodenie na dátum a čas uloženia
 @SuppressLint("SimpleDateFormat")
 fun convertLongToDateString(systemTime: Long): String {
     return SimpleDateFormat("EEEE MMM-dd-yyyy' V čase: 'HH:mm")
         .format(systemTime).toString()
 }
 
+// rozdelenie dat do riadkov
 fun formatNights(scr: List<Score>, resources: Resources): Spanned {
     val sb = StringBuilder()
     sb.apply {
@@ -27,17 +34,6 @@ fun formatNights(scr: List<Score>, resources: Resources): Spanned {
 
             append(resources.getString(R.string.str_cas))
             append("\t${convertLongToDateString(it.timeMilli)}<br>")
-
-            /*append(resources.getString(R.string.quality))
-            append("\t${convertNumericQualityToString(it.sleepQuality, resources)}<br>")
-            append(resources.getString(R.string.hours_slept))
-            // Hours
-            append("\t ${it.endTimeMilli.minus(it.startTimeMilli) / 1000 / 60 / 60}:")
-            // Minutes
-            append("${it.endTimeMilli.minus(it.startTimeMilli) / 1000 / 60}:")*/
-            // Seconds
-            //append("${it.endTimeMilli.minus(it.startTimeMilli) / 1000}<br><br>")
-
         }
     }
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

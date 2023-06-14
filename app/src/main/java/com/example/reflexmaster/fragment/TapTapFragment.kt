@@ -17,6 +17,12 @@ import com.example.reflexmaster.database.DatabaseViewModel
 import com.example.reflexmaster.database.Score
 import com.example.reflexmaster.viewModel.TapTapViewModel
 
+/**
+ * Hra TapTap jadro celej aplikácie, najskôr sa náhodne objaví biely kruh,
+ * vždy po kliknutí sa priráta Score a da sa nová poloha.
+ * Ak hráč klikne vedľa hra sa vypne a uloží Score do Room databázy,
+ * následne sa prepne na další fragment.
+ */
 
 class TapTapFragment : Fragment() {
 
@@ -33,8 +39,8 @@ class TapTapFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // nacitanie hodnôt z room databázy
         viewModel.naciajHodnoty()
-
         return inflater.inflate(R.layout.fragment_tap_tap, container, false)
     }
 
@@ -44,12 +50,10 @@ class TapTapFragment : Fragment() {
         val constraintLayout = view.findViewById<ConstraintLayout>(R.id.vedla)
         val btncircle: Button = view.findViewById(R.id.btn_circle)
 
-        // po prevrateni
+        // po prevrateni načítanie pozície
         textViewScore.text = viewModel.score.toString()
         btncircle.x = viewModel.pozX
         btncircle.y  = viewModel.pozY
-
-        // Timer
 
         if(viewModel.pozX == 0F && viewModel.pozY == 0F){
             viewModel.dajPolohuX()
@@ -62,6 +66,7 @@ class TapTapFragment : Fragment() {
 
         constraintLayout.setOnClickListener {
 
+            // zistenie aktuálneho režimu
             val currentOrientation = resources.configuration.orientation
             if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
                 // Aktuálny režim zobrazenia je Portrait (zvislý)

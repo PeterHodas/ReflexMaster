@@ -1,17 +1,14 @@
 package com.example.reflexmaster.viewModel
 
-import android.app.Application
 import android.content.res.Resources
-import android.provider.SyncStateContract.Helpers.insert
-import android.text.method.TextKeyListener.clear
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.reflexmaster.database.Score
-import com.example.reflexmaster.database.ScoreDatabaseDao
-import kotlinx.coroutines.launch
 
+
+/**
+ * ViewModel pre triedu TapTapFragment, uchováva premenne score, výška, šírka a robí funkcie
+ * ako pripočítanie score, načítanie hodnôt a podobne
+ */
 class TapTapViewModel: ViewModel() {
 
     private var _score = 0
@@ -33,7 +30,6 @@ class TapTapViewModel: ViewModel() {
     private var _pozY = 0
     val pozY: Float
         get() = _pozY.toFloat()
-
 
     fun increaseScore() {
         _score += 1

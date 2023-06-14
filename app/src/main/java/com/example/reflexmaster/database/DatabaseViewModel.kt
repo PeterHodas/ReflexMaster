@@ -1,12 +1,15 @@
 package com.example.reflexmaster.database
 
 import android.app.Application
-import android.text.method.TextKeyListener.clear
 import android.util.Log
 import androidx.lifecycle.*
-import androidx.room.RoomDatabase
 import com.example.reflexmaster.formatNights
 import kotlinx.coroutines.launch
+
+/**
+ *  Trieda ktorú som vytvoril aby sa databáza vytvorila iba raz
+ *  a nemusel ju volať vzdy v kazdom fragmente a vytvárať si rovnaké funcie
+ */
 
 class DatabaseViewModel(application: Application): AndroidViewModel(application) {
     private val repository: ScoreRepository
@@ -37,6 +40,7 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
         initializeLast()
     }
 
+    // vráti všetky score
     private val scr = repository.getAllScore()
 
     val scoreStrings = Transformations.map(scr) { scr ->
@@ -57,6 +61,7 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
         return _posledne
     }
 
+    // insert do databázy
     fun pridajScore(score: Score){
         viewModelScope.launch {
             repository.insert(score)
@@ -70,6 +75,7 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
         }
     }
 
+    // vráti maximálne scóre
     fun dajMaxScore(): Score {
         viewModelScope.launch {
             _hodnota = repository.getMaxScore()!!
@@ -78,15 +84,15 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
         return _hodnota
     }
 
+    // vráti minimálne scóre
     fun dajMinScore(): Score {
         viewModelScope.launch {
             _min = repository.getMinScore()!!
-
         }
         return _min
     }
 
-
+    // vráti priemerné scóre
     fun dajAvgScore(): Int {
         viewModelScope.launch {
             _priemer = repository.getAvgScore()!!

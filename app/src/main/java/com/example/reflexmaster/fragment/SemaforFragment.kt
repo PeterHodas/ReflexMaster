@@ -15,8 +15,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.example.reflexmaster.R
 import com.example.reflexmaster.viewModel.SemaforViewModel
-import com.example.reflexmaster.viewModel.TapTapViewModel
 
+/**
+ * Táto trieda managuje hru semafor, spúšta časovač, vypysuje výsledky odkrýva jednotlivé časti
+ * a podobne. Taktiež managuje otočenie obrazovky.
+ */
 
 class SemaforFragment : Fragment() {
     private val viewModel: SemaforViewModel by viewModels()
@@ -39,23 +42,23 @@ class SemaforFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_semafor, container, false)
     }
-
-
-    var totalTime = 60000L // Total time in milliseconds (60 seconds)
-    val interval = 10L // Interval in milliseconds (10 milisecond)
+    var totalTime = 60000L // celkový čas v milisekundach (60 seconds)
+    val interval = 10L // Interval v millisekundach (10 milisecond)
 
     var secondsPassed = 0L
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // zistovanie ako je obrazovka otočená
         val orientation = resources.configuration.orientation
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             viewModel.zmenStav()
-            Log.d("Otocenie", " bol som otoceny xgwcjwvckbwckbhahahhahaahhahhahahah")
+            Log.d("Otocenie", " bol som otoceny ")
         } else {
             // Orientácia obrazovky je portrait (vertikálna)
             // Vykonajte príslušné akcie pre portrait orientáciu
         }
 
+        // mapovanie buttonov
         val light1: Button = view.findViewById(R.id.light1)
         val light2: Button = view.findViewById(R.id.light2)
         val light3: Button = view.findViewById(R.id.light3)
@@ -67,6 +70,7 @@ class SemaforFragment : Fragment() {
         buttonAgain = view.findViewById(R.id.againSemafor)
         buttonHome = view.findViewById(R.id.homeSemafor)
 
+        // skrývanie jednotlivých prvkov
         light1.isVisible = false
         light2.isVisible = false
         light3.isVisible = false
@@ -78,6 +82,7 @@ class SemaforFragment : Fragment() {
         var jeZhasnute = false
         val textViewSecond = view.findViewById<TextView>(R.id.sekundyTxt)
 
+        // casovac kazdy tik sa vykonaju veci vo vnútry
         countDownTimer = object : CountDownTimer(totalTime, interval) {
             override fun onTick(millisUntilFinished: Long) {
                 if (viewModel.bolUzOtoceny == true) {
@@ -94,15 +99,13 @@ class SemaforFragment : Fragment() {
                     // Calculate elapsed seconds
                     secondsPassed = (totalTime - millisUntilFinished) // 1000
 
-
-
-                    // Update UI with elapsed seconds
+                    // Aktualizuj UI s ubehnutymi sekundami
                     if (jeZhasnute == true) {
                         var cas = secondsPassed - 4000
                         textViewSecond.text = cas.toString()
                     }
 
-
+                    // miznutie semafora
                     if (secondsPassed > 1000 && secondsPassed < 1050){
                         light1.isVisible = true
                     } else if(secondsPassed > 2000 && secondsPassed < 2050){
@@ -120,7 +123,6 @@ class SemaforFragment : Fragment() {
             }
 
             override fun onFinish() {
-
             }
         }
         countDownTimer.start()

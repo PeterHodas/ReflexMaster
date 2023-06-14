@@ -6,6 +6,9 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 
+/**
+ * Trieda v ktorej píšeme selecty, inserty, update a pod. a vytvárame funkcie na kominikáciu s databázou
+ */
 @Dao
 interface ScoreDatabaseDao {
     @Insert

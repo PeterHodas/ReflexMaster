@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import com.example.reflexmaster.viewModel.MenuViewModel
 import com.example.reflexmaster.R
 
+/**
+ * Vytvorí inštancie buttonov a po kliknutí presunie na inú page
+ */
 class MenuFragment : Fragment() {
 
-    private val viewModel: MenuViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -32,6 +32,7 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // odchytenie buttonov a nacitanie page podla kliknutia
         val btnvys: Button = view.findViewById(R.id.btn_vysledok)
 
         btnvys.setOnClickListener {

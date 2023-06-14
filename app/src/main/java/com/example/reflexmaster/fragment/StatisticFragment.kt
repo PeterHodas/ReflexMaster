@@ -14,7 +14,10 @@ import com.example.reflexmaster.Timer.Timer2
 import com.example.reflexmaster.convertLongToDateString
 import com.example.reflexmaster.database.DatabaseViewModel
 
-
+/**
+ * Zobrazenie štatistík, spojenie s databázou a následné vypísanie všetkých štatistík.
+ * Volanie funkcie aj z triedy Util ktorá zmení formát času na ten správny.
+ */
 class StatisticFragment : Fragment() {
 
     private val viewModelDb: DatabaseViewModel by viewModels()
@@ -34,7 +37,6 @@ class StatisticFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_statistic, container, false)
     }
 
@@ -50,10 +52,12 @@ class StatisticFragment : Fragment() {
         viewMinSc = view.findViewById(R.id.txtMin)
         viewAvgSc = view.findViewById(R.id.txtAvg)
 
+        // nastavenie hrubeho písma
         viewMaxSc.setTypeface(null, Typeface.BOLD)
         viewMinSc.setTypeface(null, Typeface.BOLD)
         viewAvgSc.setTypeface(null, Typeface.BOLD)
 
+        // vypísanie
         viewMaxSc.text = viewModelDb.dajMaxScore().score.toString() + " Čas: " + convertLongToDateString(viewModelDb.dajMaxScore().timeMilli)
         viewMinSc.text = viewModelDb.dajMinScore().score.toString() + " Čas: " + convertLongToDateString(viewModelDb.dajMinScore().timeMilli)
         viewAvgSc.text = viewModelDb.dajAvgScore().toString()

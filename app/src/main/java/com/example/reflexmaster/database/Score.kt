@@ -4,6 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * Trieda ktorá definuje entitu, definuje jej stlpce a meno
+ */
 @Entity(tableName = "score_table1")
 data class Score(
     @PrimaryKey(autoGenerate = true)

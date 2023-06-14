@@ -14,12 +14,14 @@ import com.example.reflexmaster.R
 import com.example.reflexmaster.Timer.Timer
 import com.example.reflexmaster.database.DatabaseViewModel
 
-
+/**
+ * Trieda ktorá riadni fragment ktorý sa objaví po ukončení hry Tap Tap
+ * vytvorí si inštanciu buttonov a načíta dáta z databázy
+ */
 class GameOverFragment : Fragment() {
     private lateinit var timer: Timer
     private val viewModelDb: DatabaseViewModel by viewModels()
     private lateinit var viewScre: TextView
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,15 +34,13 @@ class GameOverFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_game_over, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // vytvorenie inštancii buttonov a view
         viewScre = view.findViewById(R.id.scoreAktual)
         val btnHome: Button = view.findViewById(R.id.BtnHome)
         val btnAgain: Button = view.findViewById(R.id.BtnAgain)
@@ -76,6 +76,4 @@ class GameOverFragment : Fragment() {
         // Zastavenie časovača pri zničení fragmentu
         timer.cancel()
     }
-
-
 }
